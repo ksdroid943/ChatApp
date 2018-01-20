@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/welcom_two"
+    tools:context="com.example.sagar.chatapp.Welcom2Activity">
+
+    <Button
+        android:id="@+id/already_have_account"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="144dp"
+        android:elevation="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="@string/already_have_account"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/new_user_click"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/already_have_account"
+        android:layout_alignTop="@+id/already_have_account"
+        android:layout_marginTop="65dp"
+        android:elevation="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="@string/new_user_click_here"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+</RelativeLayout>
