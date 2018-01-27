@@ -13,6 +13,8 @@ import android.widget.TextView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -28,6 +30,7 @@ public class AllUsersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_users);
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
+        databaseReference.keepSynced(true);
 
         mToolbar = findViewById(R.id.alluers_app_bar);
         setSupportActionBar(mToolbar);
@@ -98,9 +101,27 @@ public class AllUsersActivity extends AppCompatActivity {
 
         }
 
-        public void setUser_thumb_image(Context c, String user_thumb_image) {
-            CircleImageView uimage = mView.findViewById(R.id.allusers_circleimage);
-            Picasso.with(c).load(user_thumb_image).placeholder(R.drawable.default_pic).into(uimage);
+        public void setUser_thumb_image(final Context c, final String user_thumb_image) {
+            final CircleImageView uimage = mView.findViewById(R.id.allusers_circleimage);
+           // Picasso.with(c).load(user_thumb_image).placeholder(R.drawable.default_pic).into(uimage);
+
+            Picasso.with(c).load(user_thumb_image)
+                    .networkPolicy(NetworkPolicy.OFFLINE)
+                    .placeholder(R.drawable.default_pic).into(uimage, new Callback() {
+                @Override
+                public void onSuccess() {
+
+                }
+
+                @Override
+                public void onError() {
+
+                     Picasso.with(c).load(user_thumb_image).placeholder(R.drawable.default_pic).into(uimage);
+
+
+                }
+            });
+
         }
 
     }
