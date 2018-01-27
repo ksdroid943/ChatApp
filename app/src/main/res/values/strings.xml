@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">ChatApp</string>
-    <string name="already_have_account">Already Have Account?</string>
-    <string name="new_user_click_here">New User Click Here...</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-</resources>
